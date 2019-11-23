@@ -1,33 +1,50 @@
-//slide container reference
+//dom references
 const slideContainer = document.querySelector(".slidecontainer");
-//array of slides
 let slides = Array.from(slideContainer.children);
-//slide Height
 let slideHeight = slides[0].getBoundingClientRect().height;
+let floater = document.querySelector(".floater");
+let indicator = document.querySelector(".indicator");
+let dots = Array.from(indicator.children);
 //set slide positions
 slides.forEach((element, index) => {
   element.style.top = "" + slideHeight * index + "px";
 });
-//get floater instance
-let floater = document.querySelector(".floater");
 
 //screen changing function
 slideScreenDown = (e) => {
-  //get current slide
+  //get references
   const currentSlide = slideContainer.querySelector(".active");
-  //get next slide
   const nextSlide = currentSlide.nextElementSibling;
-  //moving distance
-  const movDistance = nextSlide.style.top;
+  const currentDot = indicator.querySelector(".active-dot");
+  const nextDot = currentDot.nextElementSibling;
   //slide current slide away
-  slideContainer.style.transform = "translateY(-" + movDistance + ")";
-  //set current slide
-  currentSlide.classList.remove("active");
-  //set next slide
-  nextSlide.classList.add("active");
+  slideScreen(slideContainer, currentSlide, nextSlide, currentDot, nextDot);
 };
 
-slideScreenUp = (e) => {};
+//slide screen up
+slideScreenUp = (e) => {
+  const currentSlide = slideContainer.querySelector(".active");
+  const prevSlide = currentSlide.previousElementSibling;
+  const currentDot = indicator.querySelector(".active-dot");
+  const prevDot = currentDot.previousElementSibling;
+  slideScreen(slideContainer, currentSlide, prevSlide, currentDot, prevDot);
+};
+
+//slide function
+slideScreen = (
+  slideContainer,
+  currentSlide,
+  nextDirection,
+  currentDot,
+  nextDot
+) => {
+  slideContainer.style.transform =
+    "translateY(-" + nextDirection.style.top + ")";
+  currentSlide.classList.remove("active");
+  nextDirection.classList.add("active");
+  currentDot.classList.remove("active-dot");
+  nextDot.classList.add("active-dot");
+};
 
 //handlekeypress
 handleArrowKeys = (e) => {
@@ -35,6 +52,7 @@ handleArrowKeys = (e) => {
     slideScreenDown();
   }
   if (e.keyCode == "38") {
+    slideScreenUp();
   }
 };
 
