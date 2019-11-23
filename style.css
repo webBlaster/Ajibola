@@ -75,3 +75,28 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.second {
+    color:white;
+    background-image: url('pictures/Web\ 1920\ –\ 2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.third {
+    color:white;
+    background-image: url('pictures/Web\ 1920\ –\ 3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.fourth {
+    color:white;
+    background-image: url('pictures/Web\ 1920\ –\ 1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.logo {
+    position: fixed;
+    z-index: 4;
+    top:0;
+    height:120px;
+    overflow: hidden;
+}
