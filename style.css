@@ -100,3 +100,11 @@ h1 {
     height:120px;
     overflow: hidden;
 }
+.fancy-btn {
+    border-radius: 50px;
+    background-color:rgba(255, 255, 255, 0);
+    border:2px solid white;
+}
+.fancy-btn:hover {
+    background-color:rgba(255, 255, 255, 0.356);
+}
