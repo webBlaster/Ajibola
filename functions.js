@@ -17,6 +17,8 @@ slideScreenDown = (e) => {
   const nextSlide = currentSlide.nextElementSibling;
   const currentDot = indicator.querySelector(".active-dot");
   const nextDot = currentDot.nextElementSibling;
+  const futureDot = nextDot.nextElementSibling;
+  floaterVisibility(futureDot, nextSlide);
   //slide current slide away
   slideScreen(slideContainer, currentSlide, nextSlide, currentDot, nextDot);
 };
@@ -27,6 +29,8 @@ slideScreenUp = (e) => {
   const prevSlide = currentSlide.previousElementSibling;
   const currentDot = indicator.querySelector(".active-dot");
   const prevDot = currentDot.previousElementSibling;
+  const pastDot = prevDot.previousElementSibling;
+  floaterVisibility(pastDot, prevSlide);
   slideScreen(slideContainer, currentSlide, prevSlide, currentDot, prevDot);
 };
 
@@ -44,6 +48,15 @@ slideScreen = (
   nextDirection.classList.add("active");
   currentDot.classList.remove("active-dot");
   nextDot.classList.add("active-dot");
+};
+
+floaterVisibility = (fortune, next) => {
+  if (fortune === null && next.style.top !== "0px") {
+    floater.style.display = "none";
+    console.log(next.style.top);
+  } else {
+    floater.style.display = "block";
+  }
 };
 
 //handlekeypress
