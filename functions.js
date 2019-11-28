@@ -49,7 +49,7 @@ slideScreen = (
   currentDot.classList.remove("active-dot");
   nextDot.classList.add("active-dot");
 };
-
+//floater Visibility function
 floaterVisibility = (fortune, next) => {
   if (fortune === null && next.style.top !== "0px") {
     floater.style.display = "none";
@@ -72,3 +72,13 @@ handleArrowKeys = (e) => {
 //add event listener
 floater.addEventListener("click", slideScreenDown);
 document.onkeydown = handleArrowKeys;
+slideContainer.addEventListener("touchstart", setInitialTouch);
+//swipe functionality on mobile
+let initialTouchPositionX = null;
+let initialTouchPositionY = null;
+
+setInitialTouch = (e) => {
+  initialTouchPositionX = e.touches[0].clientX;
+  initialTouchPositionY = e.touches[0].clientY;
+  alert(initialTouchPositionY);
+};
