@@ -5,8 +5,15 @@ let slideHeight = slides[0].getBoundingClientRect().height;
 let floater = document.querySelector(".floater");
 let indicator = document.querySelector(".indicator");
 let dots = Array.from(indicator.children);
+//function to set initial touch on screen
+const setInitialTouch = (e) => {
+  initialTouchPositionX = e.touches[0].clientX;
+  initialTouchPositionY = e.touches[0].clientY;
+  alert(initialTouchPositionY);
+};
 //set slide positions
 slides.forEach((element, index) => {
+  element.addEventListener("touchstart", setInitialTouch);
   element.style.top = "" + slideHeight * index + "px";
 });
 
@@ -53,7 +60,6 @@ slideScreen = (
 floaterVisibility = (fortune, next) => {
   if (fortune === null && next.style.top !== "0px") {
     floater.style.display = "none";
-    console.log(next.style.top);
   } else {
     floater.style.display = "block";
   }
@@ -72,13 +78,6 @@ handleArrowKeys = (e) => {
 //add event listener
 floater.addEventListener("click", slideScreenDown);
 document.onkeydown = handleArrowKeys;
-slideContainer.addEventListener("touchstart", setInitialTouch);
 //swipe functionality on mobile
 let initialTouchPositionX = null;
 let initialTouchPositionY = null;
-
-setInitialTouch = (e) => {
-  initialTouchPositionX = e.touches[0].clientX;
-  initialTouchPositionY = e.touches[0].clientY;
-  alert(initialTouchPositionY);
-};
