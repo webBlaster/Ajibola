@@ -5,15 +5,42 @@ let slideHeight = slides[0].getBoundingClientRect().height;
 let floater = document.querySelector(".floater");
 let indicator = document.querySelector(".indicator");
 let dots = Array.from(indicator.children);
+
+let initialTouchPositionX = null;
+let initialTouchPositionY = null;
 //function to set initial touch on screen
 const setInitialTouch = (e) => {
   initialTouchPositionX = e.touches[0].clientX;
   initialTouchPositionY = e.touches[0].clientY;
-  alert(initialTouchPositionY);
+};
+
+const touchMoveHandler = (e) => {
+  if (initialTouchPositionX === null || initialTouchPositionY === null) {
+    return;
+  }
+  const currentTouchPositionX = e.touches[0].clientX;
+  const currentTouchPositionY = e.touches[0].clientY;
+  const distanceX = initialTouchPositionX - currentTouchPositionX;
+  const distanceY = initialTouchPositionY - currentTouchPositionY;
+  if (Math.abs(distanceX) > Math.abs(distanceY)) {
+    //horizontal
+    return;
+  } else {
+    //vertical
+    if (distanceY < 0) {
+      slideScreenUp();
+    } else {
+      slideScreenDown();
+    }
+  }
+  initialTouchPositionX = null;
+  initialTouchPositionY = null;
+  e.preventDefault();
 };
 //set slide positions
 slides.forEach((element, index) => {
   element.addEventListener("touchstart", setInitialTouch);
+  element.addEventListener("touchmove", touchMoveHandler);
   element.style.top = "" + slideHeight * index + "px";
 });
 
@@ -78,6 +105,3 @@ handleArrowKeys = (e) => {
 //add event listener
 floater.addEventListener("click", slideScreenDown);
 document.onkeydown = handleArrowKeys;
-//swipe functionality on mobile
-let initialTouchPositionX = null;
-let initialTouchPositionY = null;
