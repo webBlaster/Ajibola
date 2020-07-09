@@ -64,7 +64,7 @@ h1 {
 }
 
 .overlay {
-    background:rgba(128, 0, 128, 0.205);
+    background: rgb(0, 0, 0);
     height: 100vh;
     padding:0 0 0 0;
     margin:0;
@@ -74,25 +74,25 @@ h1 {
 }
 .first {
     color:white;
-    background-image: url('pictures/Web\ 1920\ –\ 1.jpg');
+    background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
 }
 .second {
     color:white;
-    background-image: url('pictures/Web\ 1920\ –\ 2.jpg');
+    background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
 }
 .third {
     color:white;
-    background-image: url('pictures/Web\ 1920\ –\ 3.jpg');
+    background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
 }
 .fourth {
     color:white;
-    background-image: url('pictures/Web\ 1920\ –\ 1.jpg');
+    background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
 }
