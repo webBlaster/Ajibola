@@ -112,6 +112,22 @@ h1 {
     background-color:rgba(255, 255, 255, 0.356);
 }
 
+.icons {
+    width:100%;
+    padding:0;
+    margin:0;
+    display: relative;
+}
+.icons li {
+    display: inline-block;
+    padding:0;
+    width:30%;
+}
+
+.icons img {
+    width: 60%;
+}
+
 @media screen and (max-width:700px) {
     .floater {
         left:46.5%;
@@ -121,5 +137,8 @@ h1 {
     }
     .textimage {
         width:90%;
+    }
+    .icons img {
+        width: 60%;
     }
 }
