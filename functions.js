@@ -37,6 +37,7 @@ const touchMoveHandler = (e) => {
   initialTouchPositionY = null;
   e.preventDefault();
 };
+
 //set slide positions
 slides.forEach((element, index) => {
   element.addEventListener("touchstart", setInitialTouch);
