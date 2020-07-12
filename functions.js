@@ -8,6 +8,7 @@ let dots = Array.from(indicator.children);
 
 let initialTouchPositionX = null;
 let initialTouchPositionY = null;
+
 //function to set initial touch on screen
 const setInitialTouch = (e) => {
   initialTouchPositionX = e.touches[0].clientX;
@@ -84,6 +85,7 @@ slideScreen = (
   currentDot.classList.remove("active-dot");
   nextDot.classList.add("active-dot");
 };
+
 //floater Visibility function
 floaterVisibility = (fortune, next) => {
   if (fortune === null && next.style.top !== "0px") {
