@@ -159,9 +159,10 @@ h1 {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
   height: 100%;
-  z-index: 3;
 }
 
 .circles li {
