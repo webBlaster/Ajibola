@@ -163,6 +163,7 @@ h1 {
   margin: 0 auto;
   padding: 0;
   height: 0;
+  z-index: 3;
 }
 
 .circles li {
