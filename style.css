@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300&display=swap");
+a {
+  color: whitesmoke;
+}
 
 body {
   padding: 0;
@@ -75,7 +78,7 @@ h1 {
 }
 
 .projects {
-  padding-top: 20vh;
+  padding-top: 10vh;
 }
 .first {
   color: white;
